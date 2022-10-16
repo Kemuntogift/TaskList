@@ -67,3 +67,15 @@ let createTasks = () => {
 
     resetForm();
 };
+
+let resetForm = () => {
+    textInput.value = "";
+    dateInput.value = "";
+    textarea.value = "";
+};
+
+(() => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
+    console.log(data);
+    createTasks();
+})();
