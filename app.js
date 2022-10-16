@@ -79,3 +79,21 @@ let resetForm = () => {
     console.log(data);
     createTasks();
 })();
+
+
+let deleteTask = (object) => {
+    object.parentElement.parentElement.remove();
+    data.splice(e.parentElement.parentElement.id, 1);
+    localStorage.setItem("data", JSON.stringify(data));
+    console.log(data);
+};
+
+let editTask = (object) => {
+    let selectedTask = object.parentElement.parentElement;
+
+    textInput.value = selectedTask.children[0].innerHTML;
+    dateInput.value = selectedTask.children[1].innerHTML;
+    textarea.value = selectedTask.children[2].innerHTML;
+
+    deleteTask(object);
+};
