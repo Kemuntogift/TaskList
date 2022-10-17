@@ -6,6 +6,8 @@ let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
 let add = document.getElementById("add");
 
+
+
 form.addEventListener("submit", (object) => {
     object.preventDefault();
     formValidation();
@@ -52,13 +54,14 @@ let createTasks = () => {
     tasks.innerHTML = "";
     data.map((x, y) => {
         return (tasks.innerHTML += `
-    <div id=${y}>
+    <div class="sthrough" id=${y}>
           <span class="fw-bold">${x.text}</span>
           <span class="small text-secondary">${x.date}</span>
           <p>${x.description}</p>
   
           <span class="options">
-          <button class="completed-btn"><i class="fas fa-check"></i></button>
+          
+          <input type="checkbox" id="click" onClick= "strikeThrough(this)">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
@@ -80,6 +83,9 @@ let resetForm = () => {
     console.log(data);
     createTasks();
 })();
+
+
+
 
 
 let deleteTask = (object) => {
